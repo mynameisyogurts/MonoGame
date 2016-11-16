@@ -2,14 +2,13 @@
 using System.Collections;
 
 // Offsets component to it's parent
-public class VelocityOffsetPosition : MonoBehaviour {
+public class VelocityOffsetRotation : MonoBehaviour {
 
     // Player rigid body. DO NOT MODIFY THIS FROM HERE!!!
     public Rigidbody2D parentRB;
 
     // Position of Trail Piece
     Transform myTransform;
-    Vector2 startPos;
 
     // Amount to offset the trail position by
     public float MovementOffset;
@@ -18,15 +17,10 @@ public class VelocityOffsetPosition : MonoBehaviour {
 	void Start () {
         // Get our transform and the player RB
         myTransform = this.transform;
-
-        // Get local start position
-        startPos = new Vector3(myTransform.localPosition.x, myTransform.localPosition.y, myTransform.localPosition.z);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        float xOffset = parentRB.velocity.x;
-        float yOffset = parentRB.velocity.y;
-        myTransform.localPosition = new Vector3(startPos.x - (xOffset * MovementOffset), startPos.y - (yOffset * MovementOffset), myTransform.localPosition.z);
+        myTransform.up = parentRB.velocity;
     }
 }

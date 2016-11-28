@@ -12,7 +12,7 @@ public class DamageTrigger : MonoBehaviour {
     {
         HealthComponent collider = hit.gameObject.GetComponent<HealthComponent>();
         // Only do damage if colliding component has a HealthComponent
-        if(collider)
+        if (collider)
         {
             collider.ChangeHealth((int)(-damageRate * Time.deltaTime));
         }

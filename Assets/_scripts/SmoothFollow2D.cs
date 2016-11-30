@@ -9,7 +9,7 @@ public class SmoothFollow2D : MonoBehaviour
     public float followDistance;
     public GameObject target;
     public Vector3 offset;
-    Vector3 targetPos;
+    private Vector3 targetPos;
 
     [SerializeField]
     bool lookForPlayerTarget;

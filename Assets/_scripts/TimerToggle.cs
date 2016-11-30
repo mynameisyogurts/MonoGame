@@ -17,11 +17,6 @@ public class TimerToggle : MonoBehaviour {
     void Start () {
         InvokeRepeating("CallEvent", startTime, interval);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     void CallEvent()
     {

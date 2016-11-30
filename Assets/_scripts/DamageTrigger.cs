@@ -5,8 +5,7 @@ using System.Collections;
 public class DamageTrigger : MonoBehaviour {
 
     [SerializeField]
-    private int damageRate;
-    private bool onlyHurtPlayer;
+    private int damageRate, enterDamage;
 
     public void OnTriggerStay2D(Collider2D hit)
     {
@@ -15,6 +14,16 @@ public class DamageTrigger : MonoBehaviour {
         if (collider)
         {
             collider.ChangeHealth((int)(-damageRate * Time.deltaTime));
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D hit)
+    {
+        HealthComponent collider = hit.gameObject.GetComponent<HealthComponent>();
+        // Only do damage if colliding component has a HealthComponent
+        if (collider)
+        {
+            collider.ChangeHealth(-enterDamage);
         }
     }
 }

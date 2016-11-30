@@ -11,12 +11,6 @@ public class PlayerMovemet : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody2D>();
 	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-	     
-	}
 
     void FixedUpdate ()
     {

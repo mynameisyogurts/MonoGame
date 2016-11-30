@@ -7,11 +7,6 @@ public class HealthComponent : MonoBehaviour {
     [SerializeField]
     private int healthCount = 100;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-
     // Method to change the amount of health the health component has
     // Pass negative values to deal damage, pass positive values to give health
     public void ChangeHealth(int changeAmt)

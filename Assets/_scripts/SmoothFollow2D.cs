@@ -11,10 +11,18 @@ public class SmoothFollow2D : MonoBehaviour
     public Vector3 offset;
     Vector3 targetPos;
 
+    [SerializeField]
+    bool lookForPlayerTarget;
+
     // Use this for initialization
     void Start()
     {
         targetPos = transform.position;
+
+        if(lookForPlayerTarget)
+        {
+            target = GameObject.FindGameObjectWithTag("CameraTarget");
+        }
     }
 
     // Update is called once per frame

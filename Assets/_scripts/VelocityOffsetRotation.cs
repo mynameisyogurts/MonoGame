@@ -13,6 +13,10 @@ public class VelocityOffsetRotation : MonoBehaviour {
     // Amount to offset the trail position by
     public float MovementOffset;
 
+    // Threshold of movement amount required to trigger change
+    [SerializeField]
+    float Threshold;
+
 	// Use this for initialization
 	void Start () {
         // Get our transform and the player RB
@@ -21,6 +25,12 @@ public class VelocityOffsetRotation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        myTransform.up = parentRB.velocity;
+        if (parentRB.velocity.magnitude >= Threshold)
+        {
+            myTransform.up = parentRB.velocity;
+        }
+
+        // Hacky bugfix to keep rotation locked to Z-axis only
+        myTransform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z);
     }
 }

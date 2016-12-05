@@ -7,9 +7,7 @@ using System.Collections.Generic;
 public class InventoryComponent : MonoBehaviour {
 
     private Dictionary<string, int> inventory;
-    bool key = false;
-    [SerializeField]
-    private GameObject door;
+
 	// Use this for initialization
 	void Start () {
         inventory = new Dictionary<string, int>();
@@ -21,11 +19,6 @@ public class InventoryComponent : MonoBehaviour {
         // Only add an item if the quantity is bigger than 0. Removal should be handeled seperately
         if (p_quantity > 0)
             inventory[p_key] = inventory.ContainsKey(p_key) ? inventory[p_key] + p_quantity : p_quantity;
-        key = true;
-        if (key == true)
-        {
-            Destroy(door.gameObject);
-        }
     }
 
     // Remove p_quantity from key. Removes key entirely if key/value pair will = 0

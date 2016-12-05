@@ -39,8 +39,8 @@ public class InventoryComponent : MonoBehaviour {
     public int GetKey(string p_key)
     {
         if (inventory.ContainsKey(p_key))
-            return 0;
-        else
             return inventory[p_key];
+        else
+            return 0;
     }
 }

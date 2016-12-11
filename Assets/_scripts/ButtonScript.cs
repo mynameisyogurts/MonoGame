@@ -8,9 +8,10 @@ public class ButtonScript : MonoBehaviour {
         
 	}
 
-    void OnClick ()
+    public void OnMouseDown ()
     {
-        Debug.Log("Button has been pressed");
+        Application.LoadLevel("Level1");
+        //Debug.Log("Button has been pressed");
     }
 	
 	// Update is called once per frame

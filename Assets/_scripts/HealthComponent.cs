@@ -41,6 +41,7 @@ public class HealthComponent : MonoBehaviour {
     {
         GameObject.FindGameObjectWithTag("CameraTarget").transform.localPosition = Vector3.zero;
         GetComponent<PlayerMovemet>().enabled = false;
+        GetComponent<Rigidbody2D>().isKinematic = true;
         // Get list of all child objects
         foreach (Transform t in transform)
         {

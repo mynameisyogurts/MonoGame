@@ -4,12 +4,20 @@ using System.Collections;
 // Moves enemy when seen by player
 public class EnemyComponent : MonoBehaviour
 {
+    public delegate void Death();
+    public Death OnKill;
+
     public float speed;
 
     bool canMove = false;
 
     Rigidbody2D myRB;
     GameObject playerRef;
+
+    void Awake()
+    {
+        OnKill = DefaultDeath;
+    }
 
     void Start()
     {
@@ -29,6 +37,16 @@ public class EnemyComponent : MonoBehaviour
             //myRB.velocity = (new Vector2(playerRef.transform.position.x,
               //  playerRef.transform.position.y) - myRB.position) * speed * Time.fixedDeltaTime;
         }
+    }
+
+    void OnDestroy()
+    {
+        OnKill();
+    }
+
+    void DefaultDeath()
+    {
+        Debug.Log("died");
     }
 
     void OnTriggerEnter2D(Collider2D hit)

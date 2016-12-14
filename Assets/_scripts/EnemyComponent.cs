@@ -39,11 +39,6 @@ public class EnemyComponent : MonoBehaviour
         }
     }
 
-    void OnDestroy()
-    {
-        OnKill();
-    }
-
     void DefaultDeath()
     {
         Debug.Log("died");

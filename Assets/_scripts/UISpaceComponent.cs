@@ -19,6 +19,9 @@ public class UISpaceComponent : MonoBehaviour {
 
     void OnDestroy()
     {
-        uiPanel.AddUIItem(uiSpace);
+        if (uiPanel != null)
+        {
+            uiPanel.AddUIItem(uiSpace);
+        }
     }
 }

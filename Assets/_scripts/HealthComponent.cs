@@ -36,6 +36,12 @@ public class HealthComponent : MonoBehaviour {
             }
             else if(!hasDied && !isPlayer)
             {
+                EnemyComponent enemyC = gameObject.GetComponent<EnemyComponent>();
+                if(enemyC != null)
+                {
+                    enemyC.OnKill();
+                }
+                Instantiate(deathParticlePrefab, transform.position, Quaternion.Euler(0, 0, 0));
                 Destroy(this.gameObject);
             }
         }

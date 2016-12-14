@@ -19,7 +19,10 @@ public class KillDoor : MonoBehaviour {
 
     void UpdateText()
     {
-        text.text = counter.ToString();
+        if (text != null)
+        {
+            text.text = counter.ToString();
+        }
     }
 
     void Decrement()

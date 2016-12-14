@@ -16,11 +16,6 @@ public class KillDoor : MonoBehaviour {
         }
         UpdateText();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     void UpdateText()
     {

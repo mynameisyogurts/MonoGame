@@ -34,7 +34,7 @@ public class HealthComponent : MonoBehaviour {
                 hasDied = true;
                 StartCoroutine(PlayerRespawn());
             }
-            else
+            else if(!hasDied && !isPlayer)
             {
                 Destroy(this.gameObject);
             }
